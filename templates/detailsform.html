@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+
+	<div class='col-sm-6 col-sm-offset-3'>
+		<h2>Employee Details Form</h2>
+	  <form method='POST' action='' enctype='multipart/form-data' class="form-horizontal custom_div">{% csrf_token %}
+			{{ form.as_p }}
+	    
+	    <button type="submit" class="btn btn-default">Save Form</button>
+	  </form>
+
+		{% if messages %}
+    	<div class='messages'>
+    		<ul class="messages">
+    		{% for message in messages %}
+    			{% if message.tags %}
+    				{{message}}     				
+    			{% endif %}  			
+    		{% endfor %}
+    		</ul>
+    	</div>
+		{% endif %}
+{% endblock %}

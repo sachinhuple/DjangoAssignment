@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+	
+	<form method='GET' action=''>
+		<input type='text' name='q' placeholder=' Enter Tag Name' value='{{ request.GET.q }}'/>
+		<input type='submit' value='Search Files' />
+	</form>
+	
+	{% for obj in objList %}
+		
+		{% if obj.tagName == key %}
+			
+			<h3>User Id : <td>{{obj.id}}</td></h3>
+			<h3>User Name : <td>{{obj.empName}}</td></h3>
+			<h3>Tag Name : <td>{{obj.tagName}}</td></h3>
+			<h3>File Path : <td>{{obj.file.url}}</td></h3>
+			<p><iframe src="{{obj.file.url}}" width=600 height=400 frameborder=0 ></iframe></p>
+		{% endif %}		
+	{% endfor %}
+	
+{% endblock %}
